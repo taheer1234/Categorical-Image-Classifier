@@ -11,11 +11,9 @@ data = tf.keras.utils.image_dataset_from_directory(abspath_data_dir)
 #'data.map' directly allows us to map a function to the tf.data.Dataset
 data = data.map(lambda x, y : (x/255, y))
 
-#In our case there are 13 batches in data (identified using print(len(data))).
-train_size = int(len(data)*.7)  #9 batches are used for training.
-val_size = int(len(data)*.2)    #2 batches are used for validation.
-test_size = int(len(data)*.1) #2 batches are used for testing.
-#When added, we get back our original data batch number.
+train_size = int(len(data)*.7) 
+val_size = int(len(data)*.2)    
+test_size = int(len(data)*.1) 
 
 #'data.take' allows us to grab that number of batches, and 'data.skip' skips over the specified number of batches.
 train = data.take(train_size)
